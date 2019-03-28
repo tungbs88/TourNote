@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">TourNote</string>
-    <string name="empty_note">Your note list is empty, let start to create your first note now</string>
+    <string name="empty_note">Your <i>note</i> list is <b>empty</b>, let start to create your first note <b><u>now</u></b></string>
 </resources>
