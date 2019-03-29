@@ -1,4 +1,31 @@
 <resources>
     <string name="app_name">TourNote</string>
-    <string name="empty_note">Your <i>note</i> list is <b>empty</b>, let start to create your first note <b><u>now</u></b></string>
+
+    <string name="empty_note">Your <i>note list</i> is <b>empty</b>, let start to create your first note <b><u>now</u></b></string>
+
+    <string name="example_for_cdata" translatable="false">
+        <![CDATA[
+        <html>
+            <body>
+                <h1>In case the note list is empty</h1>
+                <p>When the note list is empty. You should click on the <b>+</b> button on the right-bottom of screen,
+                and follow the instruction to create your first note.</p>
+                <p><b><font color="#0000FF">Hope you enjoy</font></b></p>
+            </body>
+        </html>
+        ]]>
+    </string>
+
+    <string name="example_for_spannable" translatable="false">In case the note list is empty\nWhen the note list is empty.
+        You should click on the + button on the right-bottom of screen,
+        and follow the instruction to create your first note.\nHope you enjoy</string>
+
+    <string name="example_for_formatting_string" translatable="false">Today is %1$s\nYou have %2$d note now.
+        Let click + button to create new note.\n\nDid you see this %3$f number?</string>
+
+    <plurals name="example_for_quantity_string">
+        <item quantity="one">You have</item>
+
+    </plurals>
+
 </resources>
