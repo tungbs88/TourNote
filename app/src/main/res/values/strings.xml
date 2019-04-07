@@ -1,31 +1,31 @@
 <resources>
     <string name="app_name">TourNote</string>
 
-    <string name="empty_note">Your <i>note list</i> is <b>empty</b>, let start to create your first note <b><u>now</u></b></string>
+    <!--Common Action-->
+    <string name="common_action_close">Close</string>
+    <string name="common_action_save">Save</string>
 
-    <string name="example_for_cdata" translatable="false">
-        <![CDATA[
-        <html>
-            <body>
-                <h1>In case the note list is empty</h1>
-                <p>When the note list is empty. You should click on the <b>+</b> button on the right-bottom of screen,
-                and follow the instruction to create your first note.</p>
-                <p><b><font color="#0000FF">Hope you enjoy</font></b></p>
-            </body>
-        </html>
-        ]]>
-    </string>
+    <!--Menu Item-->
+    <string name="menu_item_about_app">About App</string>
+    <string name="menu_item_help">Help</string>
+    <string name="menu_item_version_app">Version %s</string>
 
-    <string name="example_for_spannable" translatable="false">In case the note list is empty\nWhen the note list is empty.
-        You should click on the + button on the right-bottom of screen,
-        and follow the instruction to create your first note.\nHope you enjoy</string>
+    <!--Main Screen-->
+    <string name="main_screen_add_catergory">Add Catergory</string>
+    <string name="main_screen_add_note">Add Note</string>
+    <string name="main_screen_edit_note">Edit Note</string>
+    <string name="main_screen_empty_note">Your note list is empty, let start to create your first note now</string>
 
-    <string name="example_for_formatting_string" translatable="false">Today is %1$s\nYou have %2$d note now.
-        Let click + button to create new note.\n\nDid you see this %3$f number?</string>
-
-    <plurals name="example_for_quantity_string">
-        <item quantity="one">You have</item>
-
-    </plurals>
+    <!--Note detail screen-->
+    <string name="note_detail_share">Share</string>
+    <string name="note_detail_delete">Delete</string>
+    <string name="note_detail_category">Category</string>
+    <string name="note_detail_note_detail">Detail</string>
+    <string name="note_detail_other_information">Other Information</string>
+    <string name="note_detail_map_location">Map Location</string>
+    <string name="note_detail_note_name_hint">Name</string>
+    <string name="note_detail_note_detail_hint">Description</string>
+    <string name="note_detail_add_note_hint">Your Note (Can Add Later)</string>
+    <string name="note_detail_address_hint">Address</string>
 
 </resources>

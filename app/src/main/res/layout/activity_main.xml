@@ -9,15 +9,23 @@
     <TextView
         android:id="@+id/activity_main_txt_empty"
         style="@style/InformationTextView"
+        android:text="@string/main_screen_empty_note"
         android:layout_centerInParent="true"/>
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/activity_main_img_note"
+        android:layout_width="@dimen/empty_icon_width"
+        android:layout_height="@dimen/empty_icon_height"
         android:layout_below="@+id/activity_main_txt_empty"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:layout_centerHorizontal="true"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/empty_note" />
+        app:srcCompat="@drawable/empty_note_vector" />
 
+    <EditText
+        android:id="@+id/activity_main_edt_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search your place"
+        android:inputType="textPersonName"/>
 </RelativeLayout>
