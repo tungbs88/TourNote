@@ -1,26 +1,13 @@
 package com.example.tournote;
 
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.URLSpan;
-import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "TourNote_MainActivity";
@@ -32,9 +19,29 @@ public class MainActivity extends AppCompatActivity {
 
         TextView txtEmptyNote = findViewById(R.id.activity_main_txt_empty);
         ImageView imageView = findViewById(R.id.activity_main_img_note);
+    }
 
-        int color = ContextCompat.getColor(this, R.color.colorPrimary);
-        txtEmptyNote.setTextColor(color);
-        imageView.setBackgroundResource(R.mipmap.ic_launcher);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_item_search:
+                Toast.makeText(this, "Search button selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.menu_item_about:
+                Toast.makeText(this, "About button selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.menu_item_help:
+                Toast.makeText(this, "Help button selected", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
