@@ -1,5 +1,6 @@
 package com.example.tournote;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.PersistableBundle;
 import android.support.v4.content.ContextCompat;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
 
-        // Hiện icon menu Drawer trên ActionBar
+        // Hiện icon menu Drawer (menu back) trên ActionBar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
     }
@@ -51,10 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Search button selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.menu_item_about:
-                Toast.makeText(this, "About button selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ContactActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.menu_item_help:
-                Toast.makeText(this, "Help button selected", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, ContactActivity.class);
+                startActivity(intent);
                 return true;
         }
 
