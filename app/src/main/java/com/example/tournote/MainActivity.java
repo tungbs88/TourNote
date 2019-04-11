@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -31,6 +32,53 @@ public class MainActivity extends AppCompatActivity {
         // Hiện icon menu Drawer (menu back) trên ActionBar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        Log.d("MainActivity Lifecycle", "===== onCreate =====");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d("MainActivity Lifecycle", "===== onStart =====");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        Log.d("MainActivity Lifecycle", "===== onRestart =====");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d("MainActivity Lifecycle", "===== onResume =====");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.d("MainActivity Lifecycle", "===== onPause =====");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.d("MainActivity Lifecycle", "===== onStop =====");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.d("MainActivity Lifecycle", "===== onDestroy =====");
+
     }
 
     @Override
