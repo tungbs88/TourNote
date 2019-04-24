@@ -7,28 +7,25 @@
     android:id="@+id/activity_main_drawer">
 
     <!--Content-->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/activity_main_txt_empty"
-            style="@style/InformationTextView"
-            android:text="@string/main_screen_empty_note"
-            android:layout_centerInParent="true"/>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:name="com.example.tournote.FirstFragment"/>
 
-        <ImageView
-            android:id="@+id/activity_main_img_note"
-            android:layout_width="@dimen/empty_icon_width"
-            android:layout_height="@dimen/empty_icon_height"
-            android:layout_below="@+id/activity_main_txt_empty"
-            android:layout_marginTop="@dimen/padding_medium"
-            android:layout_centerHorizontal="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/empty_note" />
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:name="com.example.tournote.SecondFragment"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <!--Left Menu-->
     <android.support.design.widget.NavigationView

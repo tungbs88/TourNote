@@ -15,10 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FirstFragment.OnFirstFragmentListener{
     private static final String TAG = "TourNote_MainActivity";
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle drawerToggle; // Điều khiển đóng/mở Drawer
+    private ActionBarDrawerToggle drawerToggle; // Điều khiển đóng|mở Drawer
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,10 +101,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_item_about:
                 Intent intent = new Intent(this, ContactActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(ContactActivity.KEY_SHOW_WHAT, ContactActivity.VALUE_SHOW_ABOUT);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 return true;
             case R.id.menu_item_help:
                 intent = new Intent(this, ContactActivity.class);
+                bundle = new Bundle();
+                bundle.putString(ContactActivity.KEY_SHOW_WHAT, ContactActivity.VALUE_SHOW_HELP);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 return true;
         }
@@ -124,5 +130,10 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onItemPressed(String content) {
+
     }
 }
