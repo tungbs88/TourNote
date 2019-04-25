@@ -3,6 +3,8 @@ package com.example.tournote;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.PersistableBundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -33,28 +35,28 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.OnF
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        Log.d("MainActivity Lifecycle", "===== onCreate =====");
+        FirstFragment firstFragment = new FirstFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.firstFrame, firstFragment);
+        fragmentTransaction.commit();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Log.d("MainActivity Lifecycle", "===== onStart =====");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
 
-        Log.d("MainActivity Lifecycle", "===== onRestart =====");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        Log.d("MainActivity Lifecycle", "===== onResume =====");
 
     }
 
@@ -62,22 +64,17 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.OnF
     protected void onPause() {
         super.onPause();
 
-        Log.d("MainActivity Lifecycle", "===== onPause =====");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        Log.d("MainActivity Lifecycle", "===== onStop =====");
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        Log.d("MainActivity Lifecycle", "===== onDestroy =====");
 
     }
 
@@ -134,6 +131,10 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.OnF
 
     @Override
     public void onItemPressed(String content) {
-
+        SecondFragment secondFragment = SecondFragment.newInstance(content);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.secondFrame, secondFragment);
+        fragmentTransaction.commit();
     }
 }

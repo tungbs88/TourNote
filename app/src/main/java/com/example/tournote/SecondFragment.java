@@ -19,6 +19,7 @@ public class SecondFragment extends Fragment {
         // Required empty public constructor
     }
 
+    // Khởi tạo SecondFragment với tham số string truyền vào
     public static SecondFragment newInstance(String content) {
         SecondFragment fragment = new SecondFragment();
         Bundle args = new Bundle();
