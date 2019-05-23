@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#CFCFCF"
     android:padding="8dp"
-    tools:context=".SecondFragment">
+    tools:context=".fragments.SecondFragment">
 
     <TextView
         android:id="@+id/txtContent"

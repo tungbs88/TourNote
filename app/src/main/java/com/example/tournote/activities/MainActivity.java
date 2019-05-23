@@ -1,23 +1,24 @@
-package com.example.tournote;
+package com.example.tournote.activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.PersistableBundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements FirstFragment.OnFirstFragmentListener{
+import com.example.tournote.fragments.FirstFragment;
+import com.example.tournote.R;
+import com.example.tournote.fragments.SecondFragment;
+
+public class MainActivity extends AppCompatActivity implements FirstFragment.OnFirstFragmentListener {
     private static final String TAG = "TourNote_MainActivity";
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle; // Điều khiển đóng|mở Drawer
@@ -36,46 +37,35 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.OnF
         getSupportActionBar().setHomeButtonEnabled(true);
 
         FirstFragment firstFragment = new FirstFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.firstFrame, firstFragment);
-        fragmentTransaction.commit();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
+        if(findViewById(R.id.contentFrame) != null){
+            // Found the ID of only one Fragment ==> Portrait mode
+            // Remove the existing fragment before add new one
+            if(savedInstanceState != null){
+                getSupportFragmentManager().executePendingTransactions();
+                Fragment fragmentById = getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+                if(fragmentById != null){
+                    getSupportFragmentManager().beginTransaction().remove(fragmentById).commit();
+                }
+            }
+            // Add new one
+            getSupportFragmentManager().beginTransaction().add(R.id.contentFrame, firstFragment).commit();
+        } else {
+            // Landscape mode
+            // Remove the existing fragments before add new one
+            if (savedInstanceState != null){
+                getSupportFragmentManager().executePendingTransactions();
+                Fragment firstFragmentById = getSupportFragmentManager().findFragmentById(R.id.firstFrame);
+                if(firstFragmentById != null){
+                    getSupportFragmentManager().beginTransaction().remove(firstFragment);
+                }
+                Fragment secondFragmentById = getSupportFragmentManager().findFragmentById(R.id.secondFrame);
+                if(secondFragmentById != null){
+                    getSupportFragmentManager().beginTransaction().remove(secondFragmentById);
+                }
+                // Add new one
+                getSupportFragmentManager().beginTransaction().add(R.id.firstFrame, firstFragment).commit();
+            }
+        }
     }
 
     @Override
@@ -131,10 +121,17 @@ public class MainActivity extends AppCompatActivity implements FirstFragment.OnF
 
     @Override
     public void onItemPressed(String content) {
-        SecondFragment secondFragment = SecondFragment.newInstance(content);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.secondFrame, secondFragment);
-        fragmentTransaction.commit();
+        SecondFragment secondFragment = SecondFragment.newInstance(content); // Khởi tạo SecondFragment với ths content truyền vào
+        if(findViewById(R.id.contentFrame) != null){
+            // Found the ID of only one Fragment ==> Portrait mode
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.contentFrame, secondFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        } else {
+            // Landscape mode
+            getSupportFragmentManager().beginTransaction().replace(R.id.secondFrame, secondFragment).commit();
+        }
     }
 }

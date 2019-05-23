@@ -1,4 +1,4 @@
-package com.example.tournote;
+package com.example.tournote.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
+import com.example.tournote.R;
 
 public class SecondFragment extends Fragment {
     private static final String ARG_CONTENT = "content";

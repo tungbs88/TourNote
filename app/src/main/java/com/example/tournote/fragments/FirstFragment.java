@@ -1,14 +1,14 @@
-package com.example.tournote;
+package com.example.tournote.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.tournote.R;
 
 
 /**
@@ -56,6 +56,7 @@ public class FirstFragment extends Fragment {
         return view;
     }
 
+    // Set listener khi fragment được thêm vào activity
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
